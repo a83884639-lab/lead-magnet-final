@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사연더샘 - 무료 가이드</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 50px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      color: #E63946;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .tagline {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .subtitle {
+      color: #888;
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      color: #333;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #E63946;
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #E63946;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #c92a35;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      color: #666;
+    }
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #E63946;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .error {
+      color: #E63946;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+    .success {
+      color: #28a745;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">사연더샘</div>
+      <div class="tagline">당신의 마음을 위로합니다</div>
+    </div>
+
+    <h1>무료 가이드를 받으세요</h1>
+    <p class="subtitle">60대 이상 시니어 여성을 위한 공감과 회복의 이야기</p>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          placeholder="성함을 입력해주세요" 
+          required
+        >
+        <div class="error" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">전화번호</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          placeholder="010-1234-5678" 
+          required
+        >
+        <div class="error" id="phoneError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="example@email.com" 
+          required
+        >
+        <div class="error" id="emailError"></div>
+      </div>
+
+      <button type="submit" id="submitBtn">무료 가이드 받기</button>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div>처리 중입니다...</div>
+      </div>
+      <div class="success" id="success">성공했습니다! 감사합니다.</div>
+      <div class="error" id="formError"></div>
+    </form>
+
+    <div class="footer">
+      <p>당신의 개인정보는 안전하게 보호됩니다.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loading = document.getElementById('loading');
+    const successMsg = document.getElementById('success');
+    const formError = document.getElementById('formError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // 입력값 가져오기
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // 기본 유효성 검사
+      if (!name || !phone || !email) {
+        formError.textContent = '모든 필드를 입력해주세요.';
+        formError.style.display = 'block';
+        return;
+      }
+
+      // 이메일 형식 검사
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        formError.textContent = '유효한 이메일을 입력해주세요.';
+        formError.style.display = 'block';
+        return;
+      }
+
+      // 제출 버튼 비활성화
+      submitBtn.disabled = true;
+      loading.style.display = 'block';
+      formError.style.display = 'none';
+      successMsg.style.display = 'none';
+
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, phone, email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          setTimeout(() => {
+            window.location.href = '/thank-you.html';
+          }, 1500);
+        } else {
+          formError.textContent = data.message || '오류가 발생했습니다.';
+          formError.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('오류:', error);
+        formError.textContent = '네트워크 오류가 발생했습니다.';
+        formError.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        loading.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

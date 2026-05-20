@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감사합니다 - 사연더샘</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 50px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .check-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: scaleIn 0.6s ease-in-out;
+    }
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .logo {
+      color: #E63946;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .message {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .highlight {
+      color: #E63946;
+      font-weight: 600;
+    }
+    .pdf-link {
+      display: inline-block;
+      background-color: #E63946;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .pdf-link:hover {
+      background-color: #c92a35;
+    }
+    .signature {
+      color: #E63946;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid #eee;
+      font-size: 14px;
+    }
+    .back-button {
+      margin-top: 30px;
+      display: inline-block;
+    }
+    .back-button a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    .back-button a:hover {
+      color: #764ba2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="check-icon">✓</div>
+    
+    <div class="logo">사연더샘</div>
+    
+    <h1>감사합니다!</h1>
+    
+    <p class="message">
+      당신의 소중한 신청을 받았습니다.
+      <br><br>
+      <span class="highlight">이메일을 확인</span>해주세요.
+      무료 가이드 다운로드 링크가 전달되었습니다.
+      <br><br>
+      당신의 이야기가 누군가에게 위로가 될 거예요.
+    </p>
+    
+    <a href="https://drive.google.com/file/d/1AkbPcfVKPnE2OCP2FANS9qjDXBrM60Ti/view?usp=sharing" class="pdf-link">
+      가이드 다운로드 (Google Drive)
+    </a>
+    
+    <div class="signature">
+      당신의 오늘도, 내일도 응원합니다. ✨
+    </div>
+    
+    <div class="back-button">
+      <a href="/landing-page.html">돌아가기</a>
+    </div>
+  </div>
+</body>
+</html>
