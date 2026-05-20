@@ -1,5 +1,5 @@
-
-  "public": "public",{
+{
+    "public": "public",
     "functions": {
           "api/submit-form.js": {
                   "memory": 1024,
