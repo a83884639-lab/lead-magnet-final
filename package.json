@@ -2,14 +2,7 @@
   "name": "lead-magnet",
   "version": "1.0.0",
   "description": "사연더샘 리드 자석 이메일 시스템",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
-  },
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
     "@sendgrid/mail": "^7.7.0",
     "dotenv": "^16.3.1"
   }
