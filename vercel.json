@@ -1,9 +1,9 @@
 {
-  "buildCommand": "npm install",
-  "functions": {
-    "api/submit-form.js": {
-      "memory": 1024,
-      "maxDuration": 30
+    "public": "public",
+    "functions": {
+          "api/submit-form.js": {
+                  "memory": 1024,
+                  "maxDuration": 30
+          }
     }
-  }
 }
