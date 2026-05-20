@@ -1,9 +1,10 @@
 {
-      "public": true,
-      "functions": {
-              "api/submit-form.js": {
-                        "memory": 1024,
-                        "maxDuration": 30
-              }
-      }
+        "buildCommand": "",
+        "public": true,
+        "functions": {
+                  "api/submit-form.js": {
+                              "memory": 1024,
+                              "maxDuration": 30
+                  }
+        }
 }
