@@ -131,6 +131,10 @@ async function sendWelcomeEmail(name, email) {
 }
 
 // 폼 제출 엔드포인트
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/landing-page.html');
+});
+
 app.post('/api/submit-form', async (req, res) => {
   const { name, phone, email } = req.body;
 
