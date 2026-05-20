@@ -1,0 +1,13 @@
+{
+  "public": ".",
+  "routes": [
+    {
+      "src": "/api/submit-form",
+      "dest": "/api/submit-form.js"
+    },
+    {
+      "src": "/",
+      "dest": "/landing-page.html"
+    }
+  ]
+}
