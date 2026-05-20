@@ -1,9 +1,9 @@
 {
-    "public": "public",
-    "functions": {
-          "api/submit-form.js": {
-                  "memory": 1024,
-                  "maxDuration": 30
-          }
-    }
+      "public": true,
+      "functions": {
+              "api/submit-form.js": {
+                        "memory": 1024,
+                        "maxDuration": 30
+              }
+      }
 }
